@@ -1,25 +1,23 @@
 package main
 
-func main(){
-	println("add two numbers",add(2,5))
-}
+func main(){}
 
-// export add
+//export add
 func add(a int,b int) int{
 	return a+b
 }
 
-// export multiply
+//export multiply
 func multiply(a int,b int) int{
 	return a*b
 }
 
-// export divide
+//export divide
 func divide(a int,b int) int{
 	return a/b
 }
 
-// export subtract
+//export subtract
 func subtract(a int,b int) int{
 	return a-b
 }
