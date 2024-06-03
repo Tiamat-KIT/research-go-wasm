@@ -17,7 +17,7 @@ func CreateRoutineFunctions[T int | float64](routine_num int) (functions []func(
 func GoRoutine[T int|float64](funcList []func([]T,[]T) []T,matrix ut.MatrixProps[T]) ut.Matrix[T] {
 	println("started.")
 	// 空の行列を作成する
-	var results = make(ut.Matrix[T], len(matrix.A))
+	var results ut.Matrix[T]
 
 	// 実行待機している関数のグループ
 	var waitGroup sync.WaitGroup
@@ -26,7 +26,7 @@ func GoRoutine[T int|float64](funcList []func([]T,[]T) []T,matrix ut.MatrixProps
 		waitGroup.Add(1)
 		go func(f func([]T,[]T) []T){
 			defer waitGroup.Done()
-			f(matrix.A[idx],matrix.B[idx])
+			results[idx] = f(matrix.A[idx],matrix.B[idx])
 		}(function)
 	}
 
