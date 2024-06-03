@@ -1,3 +1,5 @@
-mkdir dist
-cp "$(tinygo env TINYGOROOT)/targets/wasm_exec.js" ./dist/wasm_exec.js
-tinygo build -o ./dist/output.wasm -target wasm ./main.go
+DATE=`date '+%Y-%m-%d'`
+FOLDER=dist-$DATE
+mkdir $FOLDER
+cp "$(tinygo env TINYGOROOT)/targets/wasm_exec.js" ./$FOLDER/wasm_exec.js
+tinygo build -o ./$FOLDER/output.wasm -target wasm ./main.go
