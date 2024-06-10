@@ -1,12 +1,11 @@
 import { Event, useEffect,useLayoutEffect,useRef,useState } from "hono/jsx"
 import type { Remote } from "comlink"
+import GoWasmRef from "../Ref/WasmRef"
+import workerRef from "../Ref/WorkerRef"
 
 
 export default function Calcer(){
     const [TypingText,setTypingText] = useState<string>("")
-    const workerRef = useRef<Remote<typeof import("../worker/send")>
-    | null>(null)
-    const GoWasmRef  = useRef<WebAssembly.Instance | null>(null)
 
     async function WasmAsyncWorker(event: Event){
         event.preventDefault()
