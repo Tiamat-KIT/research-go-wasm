@@ -1,19 +1,24 @@
-関数を生成して実行する準備を行う関数
-createFunctions(num int) (function []MatrixOneLineFuncType)
-- for文で関数を作成して格納する
-- それを返す
+# 考えるべき仕様について
 
-実際の処理の関数を返す関数
-createFunctionBase() MatrixOneLineFuncType
-- 実際に処理する関数を定義する
-- それを返す
+以下の流れで処理を行う
+```mermaid
+flowchart TD
+    A[行列を作成する] --> B[2つの行列を関数に渡す] --> C{2つの行の長さ、列の長さが等しいか確認}
+    --> |偽|D[エラーを出す]
+    C --> |真| E[双方一行ずつ取り出す]　-->
+    F[ルーチンの中で加算する] --> G{全行を取り出して計算したか} --> |偽| E
+    G --> |真| H[結果を返す] 
+```
 
-加算する関数
-add_func = func(a []int,b []int) []int
-- 実際の加算を行う関数
-    - まず、空の配列を作成する
-    - for文で配列の要素の加算を行う
-- それを返す
+# 実装
+- 行列の型を定義する
+```go
+type Matrix [][]int 
+// 整数型の配列の配列
+```
 
-ルーティンを作成して実行していく関数
-goRoutine(funcList []MatrixOneLineFuncType) error
+- Goにはクラスの概念がないため、関数で定義する
+    - 行列構造体の新規作成(interface使用)
+    - 行列構造体の要素の取得(interface使用)
+    - 行列の一行加算(interface不使用)
+    - 行列の一行減算(interface不使用)

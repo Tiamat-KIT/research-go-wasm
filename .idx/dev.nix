@@ -7,6 +7,7 @@
   packages = [
     pkgs.go_1_20
     pkgs.tinygo
+    pkgs.bun
     # pkgs.python311
     # pkgs.python311Packages.pip
     # pkgs.nodejs_20
@@ -20,6 +21,8 @@
       # "vscodevim.vim"
       "golang.go"
       "furkanozalp.go-syntax"
+      "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+      "bierner.markdown-mermaid"
     ];
     # Enable previews
     previews = {
