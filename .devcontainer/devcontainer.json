@@ -9,7 +9,8 @@
 		"ghcr.io/devcontainers/features/node:1": {},
 		"ghcr.io/shyim/devcontainers-features/bun:0": {},
 		"devwasm.azurecr.io/dev-wasm/dev-wasm-feature/golang-wasi:0": {},
-		"ghcr.io/devcontainers-community/features/tinygo:1": {}
+		"ghcr.io/devcontainers-community/features/tinygo:1": {},
+		"ghcr.io/devcontainers/features/git:1": {}
 	},
 	"customizations": {
 		"vscode": {
